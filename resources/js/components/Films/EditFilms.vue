@@ -149,7 +149,12 @@ const modifierfilms = async () => {
         await api.put(`/api/films/${film.value.id}`, film.value);
         visible.value = false;
     } catch (error) {
-        console.error("There was an error!", error);
+        // Handle validation errors
+        if (error.response && error.response.status === 422) {
+            errors.value = Object.values(error.response.data.errors).flat();
+        } else {
+            console.error("There was an error!", error);
+        }
     }
 };
 
