@@ -11,6 +11,7 @@
             <Column field="description" header="Description" sortable></Column>
             <Column field="typeven" header="Type" sortable></Column>
             <Column field="prix" header="Prix" sortable></Column>
+            <Column field="nbplaces" header="Nombres de places" sortable></Column>
             <Column field="datedeb" header="Date Debut" sortable></Column>
             <Column field="datefin" header="Date Fin" sortable></Column>
             <Column header="Nom du producteur" style="min-width: 150px">
@@ -46,10 +47,10 @@
 </template>
 
 <script setup>
-import api from '../config/api.js';
-import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
-import { ref, onMounted} from 'vue';
+import DataTable from 'primevue/datatable';
+import { onMounted, ref } from 'vue';
+import api from '../config/api.js';
 
 import AddFilms from './AddFilms.vue';
 import EditFilms from './EditFilms.vue';

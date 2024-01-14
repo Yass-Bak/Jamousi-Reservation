@@ -19,27 +19,29 @@
                 <li class="nav-item">
                       <router-link class="nav-link active" to="/ViewFilms">Liste Films</router-link>
                     </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
-              </div>
-            </li>
-          </ul>
-          <form class="d-flex">
-            <input class="form-control me-sm-2" type="search" placeholder="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    <li class="nav-item">
+                          <router-link class="nav-link active" to="/EventsHomeCart">Nos Films</router-link>
+                        </li>
+                 <form class="d-flex" @submit.prevent="handleSearch">
+            <!-- Bind the input value to the searchQuery property -->
+            <input v-model="searchQuery" class="form-control me-sm-2" type="search" placeholder="Cherhcer un film">
+            <!-- Change the type to button to prevent form submission -->
+            <button @click="handleSearch" class="btn btn-secondary my-2 my-sm-0" type="button">Recherche</button>
           </form>
+          </ul>
+
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+    <li class="nav-item me-3">
+    <router-link class="nav-link position-relative" :class="$route.name == 'Panier' ? 'active' : ''" aria-current="page" :to="{name: 'Panier'}">
+    <i class="fa-solid fa-cart-shopping fa-lg" style="color:#ffffff;"></i>
+    <span v-if="$store.state.Features.cart.length > 0"
+    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    {{ $store.state.Features.cart.length }}
+    </span>
+    </router-link>
+
+    </li>
+    </ul>
         </div>
       </div>
     </nav>

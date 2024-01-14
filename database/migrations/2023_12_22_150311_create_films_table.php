@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('imagefilm');
             $table->enum('typeven', ['film', 'stand_up', 'théatre']);
             $table->integer('prix');
+            $table->integer('nbplaces');
             $table->date('datedeb');
             $table->date('datefin');
             $table->unsignedBigInteger('producerID');

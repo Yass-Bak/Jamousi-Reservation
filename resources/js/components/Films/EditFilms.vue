@@ -31,6 +31,10 @@
                                 <input type="text" class="form-control" id="prix" v-model="film.prix">
                             </div>
                             <div class="col-md-6 ms-auto">
+                                    <label for="nbplaces" class="form-label">Nombre de places</label>
+                                    <input type="text" class="form-control" id="nbplaces" v-model="film.nbplaces">
+                                </div>
+                            <div class="col-md-6 ms-auto">
                                     <label for="datedeb" class="form-label">Date Début</label>
                                     <input type="date" class="form-control" id="datedeb" v-model="film.datedeb">
                                 </div>
@@ -146,17 +150,18 @@ const errors = ref([]);
 const modifierfilms = async () => {
     try {
         errors.value = [];
+        console.log('Film data before update:', film.value);
         await api.put(`/api/films/${film.value.id}`, film.value);
+        console.log('Film updated successfully!');
         visible.value = false;
     } catch (error) {
-        // Handle validation errors
-        if (error.response && error.response.status === 422) {
-            errors.value = Object.values(error.response.data.errors).flat();
-        } else {
-            console.error("There was an error!", error);
-        }
+        console.error('Error updating film:', error);
+        console.error('Server response:', error.response); // Log the response for more details
+        // Add specific error handling based on the caught error
+        errors.value.push('Impossible de mettre à jour le film. Veuillez réessayer.');
     }
 };
+
 
 
 const cancel = () => {

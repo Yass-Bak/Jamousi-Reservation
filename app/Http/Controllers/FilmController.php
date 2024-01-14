@@ -24,6 +24,7 @@ class FilmController extends Controller
             'imagefilm' => 'required|string',
             'typeven' => 'required|string',
             'prix' => 'required|integer',
+            'nbplaces' => 'required|integer',
             'datedeb' => 'required|date',
             'datefin' => 'required|date',
             'producerID' => 'required|integer'
@@ -35,6 +36,7 @@ class FilmController extends Controller
             'imagefilm.required' => 'Poster est obligatoire.',
             'typeven.required' => 'Le champ "Type" est obligatoire.',
             'prix.required' => 'Prix est obligatoire.',
+            'nbplaces.required' => 'Le nombre des places disponible est obligatoire.',
             'datedeb.required' => 'Date Début est obligatoire.',
             'datefin.required' => 'Date Fin est obligatoire.',
             'producerID.required' => 'Le champ Producteur est obligatoire.',
@@ -64,6 +66,7 @@ class FilmController extends Controller
             'imagefilm' => 'required|string',
             'typeven' => 'required|string',
             'prix' => 'required|intger',
+            'nbplaces' => 'required|integer',
             'datedeb' => 'required|date',
             'datefin' => 'required|date',
             'producerID' => 'required|integer'
@@ -74,6 +77,7 @@ class FilmController extends Controller
             'imagefilm.required' => 'Poster est obligatoire.',
             'typeven.required' => 'Le champ "Type" est obligatoire.',
             'prix.required' => 'Prix est obligatoire.',
+            'nbplaces.required' => 'Le nombre des places disponible est obligatoire.',
             'datedeb.required' => 'Date Début est obligatoire.',
             'datefin.required' => 'Date Fin est obligatoire.',
             'producerID.required' => 'Le champ Producteur est obligatoire.',

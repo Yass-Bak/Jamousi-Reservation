@@ -36,6 +36,10 @@
                             <input type="text" class="form-control" id="prix" v-model="film.prix">
                         </div>
                         <div class="col-md-6 ms-auto">
+                                <label for="nbplaces" class="form-label">Nombre de places</label>
+                                <input type="text" class="form-control" id="nbplaces" v-model="film.nbplaces">
+                            </div>
+                        <div class="col-md-6 ms-auto">
                                 <label for="datedeb" class="form-label">Date Début</label>
                                 <input type="date" class="form-control" id="datedeb" v-model="film.datedeb">
                             </div>
@@ -102,6 +106,7 @@ const film = ref({
     imagefilm: "/img/img2",
     typeven: "",
     prix: "",
+    nbplaces: "",
     datedeb: "",
     datefin: "",
     producerID: "",
