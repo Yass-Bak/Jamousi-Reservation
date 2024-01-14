@@ -31,10 +31,10 @@
         </ul>
     </div>
         <hr>
-        <button type="submit" class="btn btn-outline-success" @click="modifierproducers"><i class="fa-solid fa-floppy-disk"></i>Modifier</button>
+        <button type="submit" class="btn btn-outline-success" @click="modifierproducers"><i class="fa-solid fa-floppy-disk"></i> &nbsp Modifier</button>
                  &nbsp
                     <button type="button" className="btn btn-outline-danger" @click="cancel">
-                        <i class="fa-solid fa-floppy-disk"></i>cancel</button>
+                        <i class="fa-solid fa-floppy-disk"></i> &nbsp  Annuler</button>
                 </Dialog>
             </div>
         </form>

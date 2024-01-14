@@ -40,10 +40,10 @@
         </div>
     <hr>
                 <button type="submit" className="btn btn-outline-success" @click="addProducer">
-                    <i class="fa-solid fa-floppy-disk"></i>Ajouter</button>
+                    <i class="fa-solid fa-floppy-disk"></i> &nbsp Ajouter</button>
      &nbsp
                 <button type="button" className="btn btn-outline-danger" @click="cancel">
-                    <i class="fa-solid fa-floppy-disk"></i>cancel </button>
+                    <i class="fa-solid fa-floppy-disk"></i> &nbsp Annuler</button>
             </Dialog>
         </div>
     </form>
