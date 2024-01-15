@@ -100,7 +100,7 @@ const getfilms = async () => {
     await api.get("/api/films")
         .then(res => {
             films.value = res.data
-            isLoading.value = false
+          //  isLoading.value = false
         }).catch(error => {
             console.log(error)
         })
@@ -149,16 +149,21 @@ onMounted(() => {
 const errors = ref([]);
 const modifierfilms = async () => {
     try {
+        // Clear previous errors
         errors.value = [];
-        console.log('Film data before update:', film.value);
+
+        // Make the API call to update the producer
         await api.put(`/api/films/${film.value.id}`, film.value);
-        console.log('Film updated successfully!');
+
+        // Optionally, you may want to handle the successful update here
         visible.value = false;
     } catch (error) {
-        console.error('Error updating film:', error);
-        console.error('Server response:', error.response); // Log the response for more details
-        // Add specific error handling based on the caught error
-        errors.value.push('Impossible de mettre à jour le film. Veuillez réessayer.');
+        // Handle validation errors
+        if (error.response && error.response.status === 422) {
+            errors.value = Object.values(error.response.data.errors).flat();
+        } else {
+            console.error("There was an error!", error);
+        }
     }
 };
 

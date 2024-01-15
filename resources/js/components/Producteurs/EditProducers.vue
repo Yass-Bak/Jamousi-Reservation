@@ -61,7 +61,7 @@ const getproducers = async () => {
     await api.get("/api/producers")
         .then(res => {
             producers.value = res.data
-            isLoading.value = false
+         //   isLoading.value = false
         }).catch(error => {
             console.log(error)
         })

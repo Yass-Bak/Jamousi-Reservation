@@ -14,7 +14,7 @@
                                 <li class="list-group-item">Prix : {{ film.prix }} TND</li>
                             </ul>
                             <status-card :item="film"></status-card>
-                            <button class="btn btn-outline-primary" @click="addToCart(film)" v-if="film.nbplaces > 1">
+                            <button class="btn btn-outline-primary" @click="addToCart(film)"  v-if="film.nbplaces > 1 && isFilmActive(film)">
                                 Réserver Ticket</button>
                         </div>
                     </div>
@@ -45,7 +45,13 @@ const getfilms = () => {
     });
 
 }
+const isFilmActive = (film) => {
+    const currentDate = new Date();
+    const filmEndDate = new Date(film.datefin);
 
+    // Check if film date is in the future and nbplaces is greater than 0
+    return filmEndDate > currentDate && film.nbplaces > 0;
+}
 
 const addToCart = (film) => {
     store.commit("Features/addCart", { product: film, qty: 1 });

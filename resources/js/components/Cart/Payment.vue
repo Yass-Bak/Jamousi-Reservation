@@ -14,8 +14,9 @@
                     <div id="card-element"></div>
                     <br />
                     <button type="submit" class="btn btn-success" :disabled="loading">
-                        {{ loading ? 'Processing...' : 'Procéder au paiement' }}
+                        {{ loading ? 'Traitement...' : 'Procéder au paiement' }}
                     </button>
+                     <Popup v-if="popupMessage" :message="popupMessage" :onClose="resetPopup" />
                     <div v-if="error" id="error-div" class="alert alert-danger">
                         {{ error }}
                     </div>
@@ -34,9 +35,11 @@ import { loadStripe } from '@stripe/stripe-js';
 import QRCode from 'qrcode-generator';
 import store from '../../store';
 import api from '../config/api.js';
+import Popup from './Popup.vue';
 import { useRouter } from 'vue-router';
 const qrCodeDownloadUrl = ref(null);
 const router = useRouter();
+const popupMessage = ref('');
 const stripePromise = loadStripe('pk_test_51OYcEbDLzwxtJj2kME2Jv8Js9qL7xv304epRRfPutQoEYAyUBvMDwoB1ziezYObGwgxTdz4K2FS1wc0j6RPqFHc700FSeA0IGk');
 const stripe = ref(null);
 let cardElement;
@@ -54,7 +57,9 @@ onMounted(async () => {
 });
 
 const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
+const resetPopup = () => {
+    popupMessage.value = '';
+};
 const generateQRCode = (paymentCode) => {
     console.log('Payment Code:', paymentCode);
     const typeNumber = 4;
@@ -109,8 +114,8 @@ const handleSubmit = async () => {
 
         if (response.data.message) {
             console.log(response.data.message);
-            alert(response.data.message);
-
+           // alert(response.data.message);
+            popupMessage.value = response.data.message;
             // Generate QR code
             generateQRCode(response.data.paymentCode);
 

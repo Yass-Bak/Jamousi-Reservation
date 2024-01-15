@@ -14,7 +14,6 @@ import Footer from './components/Footer.vue';
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* Ensure the container takes at least the full viewport height */
 }
 
 router-view {
@@ -23,13 +22,10 @@ router-view {
 }
 
 Footer {
-    margin-top: auto;
-    /* Use auto margin to push the footer to the bottom */
-    position: sticky;
-    bottom: 0;
-    /* Stick the footer to the bottom of the container */
+    flex-shrink: 0;
+    /* Prevent the footer from shrinking when content is small */
     background-color: #ffffff;
-    /* Add a background color to the sticky footer if needed */
     padding: 4px;
-    /* Add padding for better appearance */
-}</style>
+    margin-top: auto;
+}
+</style>

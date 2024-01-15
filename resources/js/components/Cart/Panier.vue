@@ -58,11 +58,11 @@
     <span class="amount">{{ $store.state.Features.cartTotal }}TND</span>
     </div>
     <p>Taxes et frais de port calculés à la caisse</p>
-    <router-link :to="{ name: 'Payment' }" > <button class="btn btn-Primary"> Payer
+    <router-link :to="{ name: 'Payment' }" > <button class="btn btn-dark"> Payer
     </button> </router-link>
     <div class="continue-shopping">
     <router-link :to="{ name: 'EventsHomeCart' }" >
-    <button class="btn btn-success"> <span>Continuer vos achats</span></button>
+    <button class="btn btn-dark"> <span>Continuer vos achats</span></button>
     </router-link>
 
     </div>
@@ -343,7 +343,7 @@ const getProducerName = (producerID) => {
     border-radius: 5px;
     font-weight: 400;
     letter-spacing: 1.15px;
-    background-color: #4b70e2;
+    background-color: #19191a;
     color: #f9f9f9;
     border: none;
     outline: none;
@@ -355,7 +355,7 @@ const getProducerName = (producerID) => {
     }
     .continue-shopping a,
     .start-shopping a {
-    color: gray;
+    color: rgb(34, 34, 34);
     text-decoration: none;
     display: flex;
     align-items: center;

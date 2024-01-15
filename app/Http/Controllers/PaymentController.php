@@ -28,7 +28,7 @@ class PaymentController extends Controller
             // Le paiement a réussi
             return response()->json(['message' => 'Paiement réussi', 'paymentCode' => $paymentCode]);
         } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 400);
+            return response()->json(['message' => ' Données incorrectes Vérifier votre carte']);
         }
     }
 }
