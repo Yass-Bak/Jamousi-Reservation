@@ -5,6 +5,7 @@ import ViewActeurs from "./components/Acteurs/ViewActeurs.vue"
 import ViewFilms from "./components/Films/ViewFilms.vue"
 import Panier from './components/Cart/Panier.vue';
 import EventsHomeCart from './components/Cart/EventsHomeCart.vue';
+import Payment from './components/cart/Payment.vue';
 export const routes = [
     {
     name: 'accueil',
@@ -40,5 +41,10 @@ export const routes = [
         path: '/EventsHomeCart',
         name: 'EventsHomeCart',
         component: EventsHomeCart
+    },
+    {
+        path: '/payment',
+        name: 'Payment',
+        component: Payment
     },
 ];

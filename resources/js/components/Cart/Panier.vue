@@ -58,7 +58,8 @@
     <span class="amount">{{ $store.state.Features.cartTotal }}TND</span>
     </div>
     <p>Taxes et frais de port calculés à la caisse</p>
-    <button>Payer</button>
+    <router-link :to="{ name: 'Payment' }" > <button class="btn btn-Primary"> Payer
+    </button> </router-link>
     <div class="continue-shopping">
     <router-link :to="{ name: 'EventsHomeCart' }" >
     <button class="btn btn-success"> <span>Continuer vos achats</span></button>

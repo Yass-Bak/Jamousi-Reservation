@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\ActeurController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProducerController;
 
 /*
@@ -28,3 +29,6 @@ Route::middleware('api')->group(function () {
 });
 Route::get('/film/{idprod}',
 [FilmController::class,'showFilmByProd']);
+Route::middleware('api')->group(function ($router) {
+    Route::post('/createpayment', [PaymentController::class,'createPaymentIntent']);
+});
